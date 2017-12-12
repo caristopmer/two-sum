@@ -29,7 +29,7 @@ def two_sum(nums, target)
   # If counterpart is found, return array consisting of [index of first number, index of counterpart]
   nums.each_index do |first_number_index|
     nums.each_index do |second_number_index|
-      if first_number_index != second_number_index
+      if second_number_index > first_number_index
         return [first_number_index, second_number_index] if nums[first_number_index] + nums[second_number_index] == target
       end
     end
