@@ -24,16 +24,31 @@ solution_array2 = [3, 5]
 
 
 def two_sum(nums, target)
+  nums.each_index do |index|
+    # subtract number at this index from target
+    # then search nums array for remainder
+     # if found and is not same number as first, return the answer
+    counterpart = target - nums[index]
+    counterpart_index = nums.index(counterpart)
+    if counterpart_index != nil && counterpart_index != index
+      return [index, counterpart_index]
+    end
+  end
+
+  ###################
+  # Initial Attempt, final test case was timing out.
+
   # iterate through array
   #  for each iteration, iterate again looking for the counterpart to equal target
   # If counterpart is found, return array consisting of [index of first number, index of counterpart]
-  nums.each_index do |first_number_index|
-    nums.each_index do |second_number_index|
-      if second_number_index > first_number_index
-        return [first_number_index, second_number_index] if nums[first_number_index] + nums[second_number_index] == target
-      end
-    end
-  end
+
+  # nums.each_index do |first_number_index|
+  #   nums.each_index do |second_number_index|
+  #     if second_number_index > first_number_index
+  #       return [first_number_index, second_number_index] if nums[first_number_index] + nums[second_number_index] == target
+  #     end
+  #   end
+  # end
 end
 
 # puts "Testing!"
